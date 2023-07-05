@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [18.x, 19.x]
+        node-version: [20.x]
 
     steps:
       - name: Checkout Code
@@ -28,7 +28,7 @@ jobs:
           path: |
             ~/.npm
             ${{ github.workspace }}/.next/cache
-          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**.js', '**.jsx') }}
           restore-keys: |
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
             
@@ -39,8 +39,6 @@ jobs:
         run: npm run lint
       - name: Prettier (Code style check)
         run: npm run prettier
-      - name: Type checking (using TSC CLI)
-        run: npm run type-check
       - name: All went well!
         run: echo Success
     env:
@@ -53,7 +51,7 @@ jobs:
     needs: [lint]
     strategy:
       matrix:
-        node-version: [18.x, 19.x]
+        node-version: [20.x]
 
     steps:
       - name: Checkout Code
