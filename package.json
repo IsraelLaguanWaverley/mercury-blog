@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "prettier": "prettier --check \"src/**/*.{ts,tsx}\"",
-    "cypress:open": "cypress open"
+    "cypress:open": "cypress open",
+    "test": "node --test --test-reporter spec"
   },
   "dependencies": {
     "next": "13.4.8",
