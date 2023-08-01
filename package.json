@@ -36,7 +36,7 @@
     "hiq": "^4.2.3",
     "postcss-import": "^15.1.0",
     "prettier": "~2.8.8",
-    "storybook": "^7.0.26"
+    "storybook": "^7.1.1"
   },
   "engines": {
     "node": ">=18.0.0",
